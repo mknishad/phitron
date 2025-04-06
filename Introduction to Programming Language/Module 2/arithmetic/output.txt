@@ -1,0 +1,5 @@
+Summation = 15
+Subtraction = 5
+Multiplication = 50
+Division = 3.000000
+Modulus = 0
