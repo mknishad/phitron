@@ -1,0 +1,6 @@
+Ceil of 6.5  = 7.0
+Floor of 6.5  = 6.0
+Round of 6.5  = 7.0
+Square root of 6.5  = 2.5
+6.5 to the power 6.5  = 192281.2
+Abs of -11 = 11
