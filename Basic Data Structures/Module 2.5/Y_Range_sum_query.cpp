@@ -23,11 +23,7 @@ int main()
     {
         int l, r;
         cin >> l >> r;
-        if (l == 1) {
-            cout << sum[r] << endl;
-        } else {
-            cout << sum[r] - sum[l - 1] << endl;
-        }
+        cout << sum[r] - sum[l - 1] << endl;
     }
 
     return 0;
