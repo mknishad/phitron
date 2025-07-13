@@ -12,13 +12,14 @@ void print_forward(list<int> l)
 
 void print_backword(list<int> l, list<int>::iterator it)
 {
-    /*if (it == l.end())
-    {
-        return;
-    }
+    // if (it == l.end())
+    // {
+    //     return;
+    // }
 
-    print_backword(l, ++it);
-    cout << *it << " ";*/
+    // auto next_it = it;
+    // print_backword(l, ++next_it);
+    // cout << *it << " ";
 
     l.reverse();
     for (int val : l)
