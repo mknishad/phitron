@@ -1,54 +1,58 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class MyStack 
+class MyQueue
 {
 public:
-    vector<int> v;
-    
+    list<int> l;
+
     void push(int val)
     {
-        v.push_back(val);
+        l.push_back(val);
     }
 
     void pop()
     {
-        v.pop_back();
+        l.pop_front();
     }
 
-    int top()
+    int front()
     {
-        return v.back();
+        return l.front();
+    }
+
+    int back()
+    {
+        return l.back();
     }
 
     int size()
     {
-        return v.size();
+        return l.size();
     }
 
     bool empty()
     {
-        return v.empty();
+        return l.empty();
     }
 };
 
 int main()
 {
-    MyStack st;
+    MyQueue q;
     int n;
     cin >> n;
-
     for (int i = 0; i < n; i++)
     {
         int x;
         cin >> x;
-        st.push(x);
+        q.push(x);
     }
     
-    while (!st.empty())
+    while (!q.empty())
     {
-        cout << st.top() << " ";
-        st.pop();
+        cout << q.front() << " ";
+        q.pop();
     }
 
     return 0;
