@@ -58,7 +58,7 @@ Node * input_tree()
         }
         if (p->right)
         {
-            q.push(p->left);
+            q.push(p->right);
         }
     }
 
