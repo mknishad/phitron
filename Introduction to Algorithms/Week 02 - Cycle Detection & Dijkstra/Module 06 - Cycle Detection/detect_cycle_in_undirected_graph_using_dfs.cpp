@@ -38,7 +38,7 @@ int main()
     }
 
     memset(vis, false, sizeof(vis));
-    memset(parent, false, sizeof(vis));
+    memset(parent, -1, sizeof(parent));
     has_cycle = false;
 
     for (int i = 0; i < n; i++)

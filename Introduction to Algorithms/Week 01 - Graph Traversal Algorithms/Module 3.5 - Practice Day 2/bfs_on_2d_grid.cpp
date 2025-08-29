@@ -26,8 +26,6 @@ void bfs(int si, int sj)
         pair<int, int> par = q.front();
         q.pop();
 
-        //cout << par.first << " " << par.second << endl;
-
         for (int i = 0; i < 4; i++)
         {
             int ci = par.first + d[i].first;
