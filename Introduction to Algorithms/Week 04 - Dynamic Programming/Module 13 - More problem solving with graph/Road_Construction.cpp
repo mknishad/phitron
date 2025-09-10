@@ -1,13 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int par[105];
-int group_size[105];
+int par[100005];
+int group_size[100005];
+int cmp, mx;
 
 int find(int node)
 {
     if (par[node] == -1)
         return node;
+    
     int leader = find(par[node]);
     par[node] = leader;
     return leader;
@@ -18,44 +20,46 @@ void dsu_union(int node1, int node2)
     int leader1 = find(node1);
     int leader2 = find(node2);
 
+    if (leader1 == leader2)
+        return;
+    
     if (group_size[leader1] >= group_size[leader2])
     {
         par[leader2] = leader1;
         group_size[leader1] += group_size[leader2];
+        mx = max(mx, group_size[leader1]);
     }
     else
     {
         par[leader1] = leader2;
         group_size[leader2] += group_size[leader1];
+        mx = max(mx, group_size[leader2]);
     }
+
+    cmp--;
 }
 
 int main()
 {
-    memset(par, -1, sizeof(par));
-    memset(group_size, 1, sizeof(group_size));
-
     int n, e;
     cin >> n >> e;
 
-    bool cycle = false;
+    cmp = n;
+    mx = 1;
+
+    for (int i = 1; i <= n; i++)
+    {
+        par[i] = -1;
+        group_size[i] = 1;
+    }
+    
     while (e--)
     {
         int a, b;
         cin >> a >> b;
-
-        int leaderA = find(a);
-        int leaderB = find(b);
-        if (leaderA == leaderB)
-            cycle = true;
-        else
-            dsu_union(a, b);
+        dsu_union(a, b);
+        cout << cmp << " " << mx << endl;
     }
-
-    if (cycle)
-        cout << "Cycle detected!" << endl;
-    else
-        cout << "No cycle!" << endl;
 
     return 0;
 }
